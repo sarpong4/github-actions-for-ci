@@ -1,7 +1,16 @@
 name: Team awesome's approval workflow
 
 on: pull_request_review
-
 jobs:
   labelWhenApproved:
+    name: Label when approved
     runs-on: ubuntu-latest
+    steps:
+      - uses: pullreminders/label-when-approved-action@main
+      
+        env:
+          APPROVALS: "1"
+          GITHUB-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "approved"
+        
+      
